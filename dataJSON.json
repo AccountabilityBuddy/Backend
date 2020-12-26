@@ -1,0 +1,40 @@
+[
+	{
+		"user": [
+			{
+				"id": "324234234",
+				"username": "user1",
+				"password": "plainTextPasswordIsDumb",
+				"firstName": "David",
+				"lastName": "Lin"
+			},
+			{
+				"id": "324234235",
+				"username": "user1",
+				"password": "plainTextPasswordIsDumb",
+				"firstName": "David",
+				"lastName": "Lin"
+			}
+		]
+	},
+	{
+		"goal": [
+			{
+				"id": "324234234",
+				"startDate": "2020-12-26T01:30:22Z",
+				"endDate": "2020-12-26T01:30:22Z",
+				"period": "60",
+				"stake": "5",
+				"buddy": "324234235"
+			},
+			{
+				"id": "324234235",
+				"startDate": "2020-12-26T01:30:22Z",
+				"endDate": "2020-12-26T01:30:22Z",
+				"period": "60",
+				"stake": "5",
+				"buddy": "324234234"
+			}
+		]
+	}
+]
