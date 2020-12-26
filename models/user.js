@@ -7,7 +7,6 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    // Plain text password is dumb but whatever
     password: {
         type: String,
         required: true
@@ -16,13 +15,23 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    createdEvents: [
-        {
-            // Store a list of IDs which will reference the events
-            type: Schema.Types.ObjectId,
-            ref: "Event"
-        }
-    ]
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    createdEvents: [{
+        // Store a list of IDs which will reference the events
+        type: Schema.Types.ObjectId,
+        ref: "Event"
+    }],
+    createdGoals: [{
+        type: Schema.Types.ObjectId,
+        ref: "Goal"
+    }]
 });
 
 

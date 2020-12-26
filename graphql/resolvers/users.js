@@ -18,14 +18,17 @@ module.exports = {
     createUser: (args) => {
         return User.findOne({email: args.userInput.email}).then(user => {
             if (user){
-                throw new Error("User exists already")
+                // Duplicate user, uncomment if need be.
+                // throw new Error("User exists already")
             }
             return bcrypt.hash(args.userInput.password, 12)
             .then(hashedPass => {
                 const user = new User({
                 username: args.userInput.username,
+                password: hashedPass,
                 email: args.userInput.email,
-                password: hashedPass
+                firstName: args.userInput.firstName,
+                lastName: args.userInput.lastName                
             });
 
             return user.save()
@@ -36,10 +39,6 @@ module.exports = {
                 console.log(err);
                 throw err;
             })
-            })
-            .catch(err=>{
-                console.log(err);
-                throw err;
             })
         })
     }

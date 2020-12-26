@@ -14,8 +14,20 @@ type User {
     _id: ID!
     username: String!
     email: String!
-    password: String
-    createdEvents: [Event!]
+    firstName: String
+    lastName: String
+    createdGoal: [Goal!]
+    createdEvent: [Event!]
+}
+
+type Goal {
+    creator: User!
+    startDate: String!
+    endDate: String!
+    period: String!
+    stake: String!
+    durationPerSession: String!
+    buddy: User!
 }
 
 input EventInput {
@@ -27,18 +39,32 @@ input EventInput {
 
 input UserInput {
     username: String!
-    email: String!
     password: String!
+    email: String!
+    firstName: String!
+    lastName: String!
+}
+
+input GoalInput {
+    creator: String!
+    startDate: String!
+    endDate: String!
+    period: String!
+    stake: String!
+    durationPerSession: String!
+    buddy: String!
 }
 
 type RootQuery {
     events: [Event!]!
     users: [User!]!
+    goals: [Goal!]!
 }
 
 type RootMutation {
     createEvent(eventInput: EventInput): Event
     createUser(userInput: UserInput): User
+    createGoal(goalInput: GoalInput): Goal
 }
 
 schema {

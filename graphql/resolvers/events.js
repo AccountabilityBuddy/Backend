@@ -34,7 +34,7 @@ module.exports = {
             description: args.eventInput.description,
             price: +args.eventInput.price,
             date: new Date().toISOString(),
-            creator: "5fe6b074ac56a50a10e9f4f5"    
+            creator: "5fe6c56524713e33e42d41bf"    
         });
         let createdEvent;
 
@@ -42,7 +42,7 @@ module.exports = {
         return event.save()
         .then(result => {
             createdEvent = {...result._doc};
-            return User.findById("5fe6b074ac56a50a10e9f4f5")
+            return User.findById("5fe6c56524713e33e42d41bf")
         })
         .then(user => {
             if (!user) {
