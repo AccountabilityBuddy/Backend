@@ -16,8 +16,8 @@ type User {
     email: String!
     firstName: String
     lastName: String
-    createdGoal: [Goal!]
-    createdEvent: [Event!]
+    createdGoals: [Goal!]
+    createdEvents: [Event!]
 }
 
 type Goal {

@@ -6,7 +6,7 @@ module.exports = {
         // Two returns due to:
         // The first return: Tell JS that a promise will be returned
         // The second return: Return the actual list of events
-        return User.find().populate('createdEvents').then(users => {
+        return User.find().populate('createdGoals').then(users => {
             return users.map(user => {
                 return { ...user._doc, password: null };
             })
