@@ -16,7 +16,7 @@ const graphQLResolvers = require('./graphql/resolvers/index')
 
 app.use(bodyParser.json());
 
-app.use('/graphql', graphqlHTTP(
+app.use('/', graphqlHTTP(
     {
     // Schema
     schema: graphQLSchema,
@@ -25,9 +25,9 @@ app.use('/graphql', graphqlHTTP(
     graphiql: true
 }));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+// app.get('/', (req, res) => {
+//    res.send('Hello World!')
+//  })
 
 // TODO: Use env variables.
 // mongoose.connect(`mongodb+srv://admin:${process.env['MONGO_PASSWORD']}@cluster0.d3kbv.mongodb.net/${process.env['MONGO_DB']}?retryWrites=true&w=majority`)
