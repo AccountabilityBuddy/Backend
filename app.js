@@ -25,11 +25,15 @@ app.use('/graphql', graphqlHTTP(
     graphiql: true
 }));
 
+app.get('/', (req, res) => {
+   res.send('Hello World!')
+})
+
 // TODO: Use env variables.
 // mongoose.connect(`mongodb+srv://admin:${process.env['MONGO_PASSWORD']}@accountabilitybuddy.1ftlr.mongodb.net/events-react-dev?retryWrites=true&w=majority`)
 mongoose.connect(`mongodb+srv://admin:c7EeAQCzpcD2kAQv@accountabilitybuddy.1ftlr.mongodb.net/events-react-dev?retryWrites=true&w=majority`)
 .then(() => {
-    app.listen(3000);
+    app.listen(process.env.PORT || 3000);
 })
 .catch(err => {
     console.log(err);
