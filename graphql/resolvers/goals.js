@@ -21,7 +21,8 @@ module.exports = {
             return events.map(goal => {
                 return {
                     ...goal._doc,
-                    creator: user.bind(this, goal._doc.creator)
+                    creator: user.bind(this, goal._doc.creator),
+                    buddy: user.bind(this, goal._doc.buddy)
                 };
             });
         } catch (err) {
@@ -32,6 +33,7 @@ module.exports = {
     createGoal: async (args) => {
         console.log(args)
         const goal = new Goal({
+            name: args.goalInput.name,
             creator: args.goalInput.creator,
             startDate: new Date(args.goalInput.startDate),
             endDate: new Date(args.goalInput.endDate),
