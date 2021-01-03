@@ -21,6 +21,7 @@ type User {
 }
 
 type Goal {
+    name: String!
     creator: User!
     startDate: String!
     endDate: String!
@@ -46,6 +47,7 @@ input UserInput {
 }
 
 input GoalInput {
+    name: String!
     creator: String!
     startDate: String!
     endDate: String!

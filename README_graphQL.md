@@ -10,6 +10,7 @@ validation errors highlighted within the text.
 GraphQL queries typically start with a "{paradim " character. Lines that start
 with a  are ignored.
 
+> If you want to get access to the MongoDB atlas database on mongodb.com, create a mongodb.com account then contact David Lin with your email address 
 
 # Accountability Specifics:
 
