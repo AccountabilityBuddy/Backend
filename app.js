@@ -26,7 +26,7 @@ app.use('/graphql', graphqlHTTP(
 }));
 
 app.get('/', (req, res) => {
-   res.send('Hello World!')
+   res.send('Please use the /graphql endpoint!')
 })
 
 // TODO: Use env variables.
