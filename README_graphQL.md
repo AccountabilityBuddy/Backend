@@ -79,6 +79,18 @@ query{
 }
 ```
 
+## To pass parameters for queries:
+```GraphQL
+query{
+  users(id: "5ff23f39b539773e946b7380"){
+    firstName
+	_id
+  }
+}
+```
+
+## Mutation examples
+
 ```GraphQL
 mutation {
     createUser(userInput: {

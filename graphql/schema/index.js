@@ -60,8 +60,8 @@ input GoalInput {
 
 type RootQuery {
     events: [Event!]!
-    users: [User!]!
-    goals: [Goal!]!
+    users(id: String): [User!]!
+    goals(id: String): [Goal!]!
 }
 
 type RootMutation {
