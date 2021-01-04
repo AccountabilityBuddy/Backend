@@ -1,19 +1,28 @@
 const bcrypt = require('bcryptjs');
+const user = require('../../models/user');
 const User = require('../../models/user')
 
 module.exports = {
-    users: () => {
+    users: async (args) => {
+        let users;
+        if (args.id != null){
+            users = await User.findById(args.id).populate('createdGoals')
+            users = [users]
+        } else {
+            users = await User.find().populate('createdGoals');
+        }
+        
         // Two returns due to:
         // The first return: Tell JS that a promise will be returned
         // The second return: Return the actual list of events
-        return User.find().populate('createdGoals').then(users => {
+        try {
             return users.map(user => {
                 return { ...user._doc, password: null };
-            })
-        }).catch(err => {
+            });
+        } catch (err) {
             console.log(err);
             throw err;
-        });
+        }
     },
     createUser: (args) => {
         return User.findOne({email: args.userInput.email}).then(user => {

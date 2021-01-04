@@ -12,13 +12,20 @@ const user = async userId => {
 
 module.exports = {
     // Must matches the name of the query defined in the schema
-    goals: async () => {
+    goals: async (args) => {
+        let goals;
+        // Attempt to find the goal given its id
+        if (args.id != null){
+            goals = await Goal.findById(args.id);
+            goals = [goals]
+        } else {
+            goals = await Goal.find();
+        }
         // Two returns due to:
         // The first return: Tell JS that a promise will be returned
-        // The second return: Return the actual list of events
+        // The second return: Return the actual list of goals
         try {
-            const events = await Goal.find();
-            return events.map(goal => {
+            return goals.map(goal => {
                 return {
                     ...goal._doc,
                     creator: user.bind(this, goal._doc.creator),

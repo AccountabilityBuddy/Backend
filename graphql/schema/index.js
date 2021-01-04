@@ -21,6 +21,7 @@ type User {
 }
 
 type Goal {
+    _id: ID!
     name: String!
     creator: User!
     startDate: String!
@@ -59,8 +60,8 @@ input GoalInput {
 
 type RootQuery {
     events: [Event!]!
-    users: [User!]!
-    goals: [Goal!]!
+    users(id: String): [User!]!
+    goals(id: String): [Goal!]!
 }
 
 type RootMutation {
