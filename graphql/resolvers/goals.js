@@ -15,10 +15,10 @@ module.exports = {
     goals: async () => {
         // Two returns due to:
         // The first return: Tell JS that a promise will be returned
-        // The second return: Return the actual list of events
+        // The second return: Return the actual list of goals
         try {
-            const events = await Goal.find();
-            return events.map(goal => {
+            const goals = await Goal.find();
+            return goals.map(goal => {
                 return {
                     ...goal._doc,
                     creator: user.bind(this, goal._doc.creator),

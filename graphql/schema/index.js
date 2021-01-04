@@ -21,6 +21,7 @@ type User {
 }
 
 type Goal {
+    _id: ID!
     name: String!
     creator: User!
     startDate: String!
