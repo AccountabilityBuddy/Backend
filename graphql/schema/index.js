@@ -32,6 +32,15 @@ type Goal {
     buddy: User!
 }
 
+type Session {
+    _id: ID!
+    user: User!
+    goal: Goal!
+    timeTaken: Date!
+    timeRemaining: Date!
+    finished: Boolean!
+}
+
 input EventInput {
     title: String!
     description: String!
