@@ -12,11 +12,11 @@ const sessionSchema = new Schema({
         ref: "Goal"
     },
     timeTaken: {
-        type: Date,
+        type: int,
         required: true
     },
     timeRemaining: {
-        type: Date,
+        type: int,
         required: true
     },
     finished: {

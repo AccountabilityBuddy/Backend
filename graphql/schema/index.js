@@ -36,8 +36,8 @@ type Session {
     _id: ID!
     user: User!
     goal: Goal!
-    timeTaken: Date!
-    timeRemaining: Date!
+    timeTaken: int!
+    timeRemaining: int!
     finished: Boolean!
 }
 
