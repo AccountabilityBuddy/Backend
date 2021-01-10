@@ -5,24 +5,26 @@ const User = require('../../models/user')
 module.exports = {
     users: async (args) => {
         let users;
+        let usersPromise;
         if (args.id != null){
-            users = await User.findById(args.id).populate('createdGoals')
-            users = [users]
+            usersPromise = User.findById(args.id)
         } else {
-            users = await User.find().populate('createdGoals');
+            usersPromise = User.find()
         }
-        
-        // Two returns due to:
-        // The first return: Tell JS that a promise will be returned
-        // The second return: Return the actual list of events
-        try {
-            return users.map(user => {
-                return { ...user._doc, password: null };
-            });
-        } catch (err) {
-            console.log(err);
-            throw err;
+
+        users = await usersPromise.populate({
+            path: 'createdGoals',
+            populate: { 
+                path: 'buddy'
+            }
+        });
+
+        if (!Array.isArray(users)){
+            // Ensure the object is an array to prepare for the mapping.
+            users = [users]
         }
+
+        return users
     },
     createUser: (args) => {
         return User.findOne({email: args.userInput.email}).then(user => {
