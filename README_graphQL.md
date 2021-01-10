@@ -47,10 +47,11 @@ so it's following the NOSQL paradigm
 ```GraphQL
 mutation{
     createGoal(goalInput: {
+      	name: "David's Goal"
         stake: "5"
-        buddy: "5fe6c56524713e33e42d41bf"
+        buddy: "5ffa75516d1f8f0004a8f6f8"
         period: "5"
-        creator: "5fe6c56524713e33e42d41bf"
+        creator: "5ffa75516d1f8f0004a8f6f8"
         durationPerSession: "5"
         startDate: "2020-12-26T04:59:43.789Z",
         endDate: "2020-12-26T04:59:43.789Z"
