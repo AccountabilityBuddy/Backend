@@ -18,6 +18,7 @@ type User {
     lastName: String
     createdGoals: [Goal!]
     createdEvents: [Event!]
+    createdSessions: [Session!]
 }
 
 type Goal {
@@ -67,16 +68,22 @@ input GoalInput {
     buddy: String!
 }
 
+input SessionInput {
+    user: User!
+    goal: Goal!
+}
 type RootQuery {
     events: [Event!]!
     users(id: String): [User!]!
     goals(id: String): [Goal!]!
+    sessions(id: String): [Session!]!
 }
 
 type RootMutation {
     createEvent(eventInput: EventInput): Event
     createUser(userInput: UserInput): User
     createGoal(goalInput: GoalInput): Goal
+    createSession(sessionInput: SessionInput): Session
 }
 
 schema {

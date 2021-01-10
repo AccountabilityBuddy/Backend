@@ -32,6 +32,10 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Goal"
     }]
+    createdSessions: [{
+        type: Schema.Types.ObjectId,
+        ref: "Session"
+    }]
 });
 
 
