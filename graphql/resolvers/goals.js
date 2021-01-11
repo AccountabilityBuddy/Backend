@@ -38,7 +38,12 @@ module.exports = {
         }
     },
     createGoal: async (args) => {
-        console.log(args)
+        // Ensure that both creator and buddy exist
+        var creator = await User.findById(args.goalInput.creator)
+        if (creator == null || await User.findById(args.goalInput.buddy) == null) {
+            throw new Error("No user found");
+        }
+
         const goal = new Goal({
             name: args.goalInput.name,
             creator: args.goalInput.creator,
@@ -55,14 +60,9 @@ module.exports = {
             const result = await goal.save();
             createdGoal = { ...result._doc };
 
-            // Find the creator and add this goal reference to them.
-            const user = await User.findById(args.goalInput.creator);
-            if (!user) {
-                throw new Error("No user found");
-            }
             // console.log(user)
-            user.createdGoals.push(goal);
-            user.save();
+            creator.createdGoals.push(goal);
+            creator.save();
 
             return createdGoal;
         } catch (err) {
