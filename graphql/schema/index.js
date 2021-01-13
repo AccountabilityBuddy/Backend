@@ -37,9 +37,11 @@ type Session {
     _id: ID!
     user: User!
     goal: Goal!
+    startTime: Date!
     timeTaken: int!
     timeRemaining: int!
     finished: Boolean!
+    imageURL: String
 }
 
 input EventInput {

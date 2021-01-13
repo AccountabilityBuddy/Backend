@@ -23,6 +23,10 @@ const sessionSchema = new Schema({
         type: Boolean,
         required: true
     },
+    startTime: {
+        type: Date,
+        required: true
+    }
 });
 
 
