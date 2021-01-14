@@ -40,7 +40,8 @@ module.exports = {
     createGoal: async (args) => {
         // Ensure that both creator and buddy exist
         var creator = await User.findById(args.goalInput.creator)
-        if (creator == null || await User.findById(args.goalInput.buddy) == null) {
+        var buddy = await User.findById(args.goalInput.buddy)
+        if (creator == null || buddy == null) {
             throw new Error("No user found");
         }
 
@@ -60,9 +61,12 @@ module.exports = {
             const result = await goal.save();
             createdGoal = { ...result._doc };
 
-            // console.log(user)
+
             creator.createdGoals.push(goal);
             creator.save();
+
+            buddy.goalsResponsible.push(goal);
+            buddy.save();
 
             return createdGoal;
         } catch (err) {

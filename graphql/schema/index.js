@@ -18,6 +18,7 @@ type User {
     lastName: String
     createdGoals: [Goal!]
     createdEvents: [Event!]
+    goalsResponsible: [Goal!]
 }
 
 type Goal {
