@@ -1,3 +1,4 @@
+const { GraphQLDate } = require('graphql-iso-date');
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -12,11 +13,11 @@ const sessionSchema = new Schema({
         ref: "Goal"
     },
     timeTaken: {
-        type: int,
+        type: Int,
         required: true
     },
     timeRemaining: {
-        type: int,
+        type: Int,
         required: true
     },
     finished: {
@@ -24,7 +25,7 @@ const sessionSchema = new Schema({
         required: true
     },
     startTime: {
-        type: Date,
+        type: GraphQLDate,
         required: true
     }
 });

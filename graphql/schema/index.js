@@ -1,4 +1,6 @@
 const { buildSchema } = require('graphql');
+const { GraphQLDate } = require('graphql-iso-date');
+
 
 module.exports = buildSchema(`
 type Event {
@@ -37,9 +39,9 @@ type Session {
     _id: ID!
     user: User!
     goal: Goal!
-    startTime: Date!
-    timeTaken: int!
-    timeRemaining: int!
+    startTime: GraphQLDate!
+    timeTaken: Int!
+    timeRemaining: Int!
     finished: Boolean!
     imageURL: String
 }

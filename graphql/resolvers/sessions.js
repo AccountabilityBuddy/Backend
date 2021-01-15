@@ -20,18 +20,6 @@ module.exports = {
         } else {
             sessions = await Session.find();
         }
-        try {
-            return sessions.map(session => {
-                return {
-                    ...session._doc,
-                    goal: user.bind(this, session._doc.goal),
-                    user: user.bind(this, goal._doc.user)
-                };
-            });
-        } catch (err) {
-            console.log(err);
-            throw err;
-        }
     },
     createSession: async (args) => {
         const session = new Session({
@@ -57,8 +45,7 @@ module.exports = {
         } catch (err) {
             console.log(err);
             throw err;
-        }
-    
+        }   
 
     }
 
