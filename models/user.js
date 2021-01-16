@@ -31,6 +31,10 @@ const userSchema = new Schema({
     createdGoals: [{
         type: Schema.Types.ObjectId,
         ref: "Goal"
+    }],
+    goalsResponsible: [{
+        type: Schema.Types.ObjectId,
+        ref: "Goal"
     }]
 });
 

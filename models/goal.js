@@ -35,7 +35,12 @@ const goalSchema = new Schema({
     buddy: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+    },
+    sessions: [{
+        // Store a list of IDs which will reference the sessions
+        type: Schema.Types.ObjectId,
+        ref: "Session"
+    }],
 });
 
 

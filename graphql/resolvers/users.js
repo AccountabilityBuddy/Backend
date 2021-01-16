@@ -19,6 +19,13 @@ module.exports = {
             }
         });
 
+        users = await usersPromise.populate({
+            path: 'goalsResponsible',
+            populate: { 
+                path: 'creator'
+            }
+        });
+
         if (!Array.isArray(users)){
             // Ensure the object is an array to prepare for the mapping.
             users = [users]
