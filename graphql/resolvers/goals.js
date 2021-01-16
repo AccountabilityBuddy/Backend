@@ -14,13 +14,26 @@ module.exports = {
     // Must matches the name of the query defined in the schema
     goals: async (args) => {
         let goals;
+        let goalsPromise;
         // Attempt to find the goal given its id
         if (args.id != null){
-            goals = await Goal.findById(args.id);
-            goals = [goals]
+            goalsPromise = Goal.findById(args.id);
         } else {
-            goals = await Goal.find();
+            goalsPromise = Goal.find();
         }
+        
+        users = await goalsPromise.populate({
+            path: 'sessions',
+            populate: { 
+                path: 'buddy'
+            }
+        });
+        
+        goals = await goalsPromise;
+        if (!Array.isArray(goals)){
+            goals = [goals]
+        }
+
         // Two returns due to:
         // The first return: Tell JS that a promise will be returned
         // The second return: Return the actual list of goals
