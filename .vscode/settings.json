@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1179f515-ea21-482a-95a6-dcac85a08080/resourceGroups/ImagineCup2021/providers/Microsoft.Web/sites/accountability-buddy-backend-graphql",
+    "appService.deploySubpath": "."
+}
