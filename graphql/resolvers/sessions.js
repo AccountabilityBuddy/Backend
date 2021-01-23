@@ -44,5 +44,20 @@ module.exports = {
         session.save();
 
         return session;
+    },
+    updateApproval: async (args) => {
+        console.log(args.sessionApproval)
+        console.log("Approved:")
+        console.log(args.sessionApproval.approved)
+        var session = await Session.findById(args.sessionApproval.id);
+        
+        if (!session){
+            throw new Error("Session not found.")
+        }
+
+        session.approved = args.sessionApproval.approved
+
+        session.save()
+        return session
     }
 }

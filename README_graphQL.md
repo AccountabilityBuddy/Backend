@@ -123,3 +123,15 @@ mutation{
     }
 }
 ```
+
+Update approval:
+```graphql
+mutation{
+	updateApproval(sessionApproval: {
+    id: "60024d1031314844f0fc3226"
+    approved: true
+  }){
+    approved
+  }
+}
+```

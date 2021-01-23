@@ -78,6 +78,11 @@ input SessionInput {
     approved: Boolean!
 }
 
+input SessionApproval{
+    id: String!
+    approved: Boolean!
+}
+
 type RootQuery {
     events: [Event!]!
     users(id: String): [User!]!
@@ -90,6 +95,7 @@ type RootMutation {
     createUser(userInput: UserInput): User
     createGoal(goalInput: GoalInput): Goal
     createSession(sessionInput: SessionInput): Session
+    updateApproval(sessionApproval: SessionApproval): Session
 }
 
 schema {
