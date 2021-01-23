@@ -42,6 +42,7 @@ type Session {
     finished: Boolean!
     imageURL: String!
     approved: Boolean!
+    note: String
 }
 
 input EventInput {
@@ -76,6 +77,7 @@ input SessionInput {
     finished: Boolean!
     imageURL: String
     approved: Boolean!
+    note: String
 }
 
 input SessionApproval{

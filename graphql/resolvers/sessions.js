@@ -34,7 +34,8 @@ module.exports = {
             startDateTime: args.sessionInput.startDateTime,
             finished: args.sessionInput.finished,
             imageURL: args.sessionInput.imageURL,
-            approved: args.sessionInput.approved
+            approved: args.sessionInput.approved,
+            note: args.sessionInput.note
         })
 
         // Add session to goal

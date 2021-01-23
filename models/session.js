@@ -22,6 +22,10 @@ const sessionSchema = new Schema({
     approved: {
         type: Boolean,
         required: true
+    },
+    note: {
+        type: String,
+        required: false
     }
 });
 
