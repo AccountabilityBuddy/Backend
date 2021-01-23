@@ -83,11 +83,17 @@ input SessionApproval{
     approved: Boolean!
 }
 
+input LoginInfo{
+    email: String!
+    password: String!
+}
+
 type RootQuery {
     events: [Event!]!
     users(id: String): [User!]!
     goals(id: String): [Goal!]!
     sessions(id: String): [Session!]!
+    checkPassword(loginInfo: LoginInfo): User
 }
 
 type RootMutation {

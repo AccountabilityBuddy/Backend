@@ -44,7 +44,7 @@ module.exports = {
         return User.findOne({email: args.userInput.email}).then(user => {
             if (user){
                 // Duplicate user, uncomment if need be.
-                // throw new Error("User exists already")
+                throw new Error("User exists already")
             }
             return bcrypt.hash(args.userInput.password, 12)
             .then(hashedPass => {
@@ -66,5 +66,13 @@ module.exports = {
             })
             })
         })
+    },
+    checkPassword: async (args) => {
+        var users = await User.find({email: args.loginInfo.email})
+        if (await bcrypt.compare(args.loginInfo.password, users[0].password))
+        {
+            return(users[0])
+        }
+        throw new Error("Incorrect username/password")
     }
 }

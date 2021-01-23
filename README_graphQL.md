@@ -135,3 +135,15 @@ mutation{
   }
 }
 ```
+
+Checking password for a user:
+```graphql
+query{
+  checkPassword(loginInfo:{
+    email: "email@email.com"
+    password: "1234256"
+  }){
+    email
+  }
+}
+```
