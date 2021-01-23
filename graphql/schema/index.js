@@ -90,12 +90,17 @@ input LoginInfo{
     password: String!
 }
 
+input UserEmail{
+    email: String
+}
+
 type RootQuery {
     events: [Event!]!
     users(id: String): [User!]!
     goals(id: String): [Goal!]!
     sessions(id: String): [Session!]!
     checkPassword(loginInfo: LoginInfo): User
+    getIdByEmail(userEmail: UserEmail): String
 }
 
 type RootMutation {

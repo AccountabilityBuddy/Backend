@@ -74,5 +74,12 @@ module.exports = {
             return(users[0])
         }
         throw new Error("Incorrect username/password")
+    },
+    getIdByEmail: async (args) => {
+        var users = await User.findOne({email: args.userEmail.email})
+        if (users === null){
+            throw new Error("No user found")
+        }
+        return users.id
     }
 }

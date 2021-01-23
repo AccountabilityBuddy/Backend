@@ -147,3 +147,12 @@ query{
   }
 }
 ```
+
+Get id by email:
+```graphql
+query{
+  getIdByEmail(userEmail:{
+    email: "wsydgx@hotmail.com"
+  })
+}
+```
