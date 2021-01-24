@@ -33,6 +33,13 @@ module.exports = {
             }
         });
 
+        users = await usersPromise.populate({
+            path: 'createdGoals',
+            populate: { 
+                path: 'sessions'
+            }
+        });
+
         if (!Array.isArray(users)){
             // Ensure the object is an array to prepare for the mapping.
             users = [users]
