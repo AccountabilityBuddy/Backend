@@ -20,16 +20,16 @@ module.exports = {
         });
 
         users = await usersPromise.populate({
-            path: 'createdGoals',
+            path: 'goalsResponsible',
             populate: { 
-                path: 'sessions'
+                path: 'creator'
             }
         });
 
         users = await usersPromise.populate({
             path: 'goalsResponsible',
             populate: { 
-                path: 'creator'
+                path: 'sessions'
             }
         });
 
